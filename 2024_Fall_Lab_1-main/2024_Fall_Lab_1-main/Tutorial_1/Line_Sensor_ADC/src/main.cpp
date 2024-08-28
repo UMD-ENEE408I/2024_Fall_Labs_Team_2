@@ -15,6 +15,18 @@ void readADC() {
     adc1_buf[i] = adc1.readADC(i);
     adc2_buf[i] = adc2.readADC(i);
 
+    if (adc1_buf[i] >= 670) {
+      adc1_buf[i] = 0;
+    }
+    else
+      adc1_buf[i] = 1;
+    
+    if (adc2_buf[i] >= 670) {
+      adc2_buf[i] = 0;
+    }
+    else
+      adc2_buf[i] = 1;
+
     if (i<7) {
       Serial.print(adc1_buf[i]); Serial.print("\t");
     }

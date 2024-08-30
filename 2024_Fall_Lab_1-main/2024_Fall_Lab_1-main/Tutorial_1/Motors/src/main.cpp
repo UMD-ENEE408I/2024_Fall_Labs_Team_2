@@ -1,14 +1,14 @@
 #include <Arduino.h>
 
-const unsigned int M1_IN_1;
-const unsigned int M1_IN_2;
-const unsigned int M2_IN_1;
-const unsigned int M2_IN_2;
+const unsigned int M1_IN_1 = 13;
+const unsigned int M1_IN_2 = 12;
+const unsigned int M2_IN_1 = 25;
+const unsigned int M2_IN_2 = 14;
 
-const unsigned int M1_IN_1_CHANNEL;
-const unsigned int M1_IN_2_CHANNEL;
-const unsigned int M2_IN_1_CHANNEL;
-const unsigned int M2_IN_2_CHANNEL;
+const unsigned int M1_IN_1_CHANNEL = 8;
+const unsigned int M1_IN_2_CHANNEL = 9;
+const unsigned int M2_IN_1_CHANNEL = 10;
+const unsigned int M2_IN_2_CHANNEL = 11;
 
 const unsigned int M1_I_SENSE = 35;
 const unsigned int M2_I_SENSE = 34;
@@ -37,5 +37,15 @@ void setup() {
 }
 
 void loop() {
+  ledcWrite(M1_IN_1_CHANNEL, 100);
+  ledcWrite(M1_IN_2_CHANNEL, 0);
+  ledcWrite(M2_IN_1_CHANNEL, 100);
+  ledcWrite(M2_IN_2_CHANNEL, 0);
+  delay(1500);
 
+  ledcWrite(M1_IN_1_CHANNEL, 0);
+  ledcWrite(M1_IN_2_CHANNEL, 100);
+  ledcWrite(M2_IN_1_CHANNEL, 0);
+  ledcWrite(M2_IN_2_CHANNEL, 100);
+  delay(1500);
 }

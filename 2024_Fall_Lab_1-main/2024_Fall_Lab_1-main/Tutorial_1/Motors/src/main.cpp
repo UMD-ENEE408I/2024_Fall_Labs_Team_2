@@ -7,16 +7,16 @@ const unsigned int M2_IN_2 = 14;
 
 const unsigned int M1_IN_1_CHANNEL = 8;
 const unsigned int M1_IN_2_CHANNEL = 9;
-const unsigned int M2_IN_1_CHANNEL = 10;
-const unsigned int M2_IN_2_CHANNEL = 11;
+const unsigned int M2_IN_1_CHANNEL = 2;
+const unsigned int M2_IN_2_CHANNEL = 3;
 
 const unsigned int M1_I_SENSE = 35;
 const unsigned int M2_I_SENSE = 34;
 
-const unsigned int PWM_VALUE = 512; // Do not give max PWM. Robot will move fast
+const unsigned int PWM_VALUE = 255; // Do not give max PWM. Robot will move fast
 
 const int freq = 5000;
-const int resolution = 10;
+const int resolution = 8;
 
 
 void setup() {

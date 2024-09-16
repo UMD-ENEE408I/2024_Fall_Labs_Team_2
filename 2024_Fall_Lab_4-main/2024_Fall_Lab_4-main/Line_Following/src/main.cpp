@@ -91,14 +91,25 @@ void digitalConvert() {
 }
 
 // Calculate robot's position on the line 
-float getPosition(/* Arguments */) {
-  int position = 6;
-  /* Using lineArray[], which is an array of 13 Boolean values representing 1 
-   * if the line sensor reads a white surface and 0 for a dark surface, 
-   * this function returns a value between 0-12 for where the sensor thinks 
-   * the center of line is (6 being the middle)
-   */
-  return position;
+float getPosition() {
+  int sum = 0;  
+  int count = 0; 
+
+  // Iterate through the lineArray, which has 13 sensors
+  for (int i = 0; i < 13; i++) {
+    if (lineArray[i] == 1) {
+      sum += (i);     // 6 is middle
+      count++;
+    }
+  }
+
+  // If no line is detected, return a default value (e.g., center position)
+  if (count == 0) {
+    return mid;  // Return middle if no line detected
+  }
+
+  // Return the average position
+  return (float)sum / count;
 }
 
 /*
@@ -182,25 +193,12 @@ void loop() {
     readADC();
     digitalConvert();
 
-    pos = getPosition(/* Arguments */);
+    pos = getPosition();
+
+    Serial.print(pos); Serial.print("\n");
     
     // Define the PID errors
-    e = ;
-    d_e = ; 
-    total_e= ;
-
-    // Implement PID control (include safeguards for when the PWM values go below 0 or exceed maximum)
-    u = ;
-    rightWheelPWM = ;
-    leftWheelPWM = ;
-
-    M1_forward(rightWheelPWM);
-    M2_forward(leftWheelPWM);
-
-    // Check for corners
-    if(/* Condition for corner */) {
-      turnCorner(/* Arguments */);
-    }
-
+    
   }
+  
 }

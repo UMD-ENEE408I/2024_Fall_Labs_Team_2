@@ -2,7 +2,7 @@ import socket
 import struct
 
 # Host IP and port
-HOST = '172.20.10.2'
+HOST = '172.20.10.4'
 PORT = 10000
 
 # Create a TCP/IP socket
